@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PoiTest {
+public class PoiTest {
 
     @Test
     void getUID() {

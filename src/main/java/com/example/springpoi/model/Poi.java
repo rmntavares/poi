@@ -1,27 +1,31 @@
 package com.example.springpoi.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table(value = "pois")
 public class Poi {
     @Id
-   private Long id;
+    private Long id;
     private String name;
-   private String description;
-   private String type;
-  private String collisionCenter;
-   private String chargingStation;
-   private String dealer;
-    private String addressName;
-   private String city;
-   private String zipCode;
-    private String Lat;
-    private String Long;
+    private String description;
+    private String type;
+    private String collisioncenter;
+    private String chargingstation;
+    private String dealer;
+    private String addressname;
+    private String city;
+    private String zipcode;
+    private String lat;
+    @Column (value = "long")
+    private String longi;
 
     public Long getId() {
         return id;
     }
 
-    public void setUID(Long id) {
+    public void setID(Long id) {
         this.id = id;
     }
 
@@ -49,20 +53,20 @@ public class Poi {
         this.type = type;
     }
 
-    public String getCollisionCenter() {
-        return collisionCenter;
+    public String getCollisioncenter() {
+        return collisioncenter;
     }
 
-    public void setCollisionCenter(String collisionCenter) {
-        this.collisionCenter = collisionCenter;
+    public void setCollisioncenter(String collisioncenter) {
+        this.collisioncenter = collisioncenter;
     }
 
-    public String getChargingStation() {
-        return chargingStation;
+    public String getChargingstation() {
+        return chargingstation;
     }
 
-    public void setChargingStation(String chargingStation) {
-        this.chargingStation = chargingStation;
+    public void setChargingstation(String chargingstation) {
+        this.chargingstation = chargingstation;
     }
 
     public String getDealer() {
@@ -73,12 +77,12 @@ public class Poi {
         this.dealer = dealer;
     }
 
-    public String getAddressName() {
-        return addressName;
+    public String getAddressname() {
+        return addressname;
     }
 
-    public void setAddressName(String addressName) {
-        this.addressName = addressName;
+    public void setAddressname(String addressname) {
+        this.addressname = addressname;
     }
 
     public String getCity() {
@@ -89,27 +93,27 @@ public class Poi {
         this.city = city;
     }
 
-    public String getZipCode() {
-        return zipCode;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     public String getLat() {
-        return Lat;
+        return lat;
     }
 
     public void setLat(String lat) {
-        Lat = lat;
+        this.lat = lat;
     }
 
-    public String getLong() {
-        return Long;
+    public String getLongi() {
+        return longi;
     }
 
-    public void setLong(String aLong) {
-        Long = aLong;
+    public void setLongi(String longi) {
+        this.longi = longi;
     }
 }

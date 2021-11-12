@@ -6,15 +6,15 @@ import reactor.core.publisher.Mono;
 
 
 public interface IPoiService {
-    void create(Poi p);
+    Mono<Poi> create(Poi p);
 
     Mono<Poi> findById(Long id);
 
-    Flux<Poi> findByName(String name);
+    Flux<Poi> findByType(String type);
 
     Flux findAll();
 
     Mono update(Poi p);
 
-    void delete(Long id);
+    Mono delete(Long id);
 }

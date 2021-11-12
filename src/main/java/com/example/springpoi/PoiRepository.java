@@ -9,5 +9,5 @@ import reactor.core.publisher.Flux;
 @Component
 public interface PoiRepository extends ReactiveCrudRepository<Poi,Long> {
 
-    Flux<Poi> findByName(final String name);
+    Flux<Poi> findByType(final String type);
 }

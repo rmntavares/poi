@@ -30,25 +30,30 @@ public class PoiController {
         return new ResponseEntity<Mono<Poi>>(p, status);
     }
 
-    @RequestMapping(value = { "/create", "/" }, method = RequestMethod.POST)
+    @RequestMapping(value = {"/pois/create"}, method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody Poi e) {
-        poiService.create(e);
+    public ResponseEntity<Mono<Poi>> create(@RequestBody Poi poi) {
+        Mono<Poi> p = poiService.create(poi);
+        HttpStatus status = p != null ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
+        return new ResponseEntity<Mono<Poi>>(p,status);
     }
 
-    @RequestMapping(value = "/name/{name}", method = RequestMethod.GET)
-    public Flux<Poi> findByName(@PathVariable("name") String name) {
-        return poiService.findByName(name);
+    @RequestMapping(value = "/poi/{type}", method = RequestMethod.GET)
+    public Flux<Poi> findByType(@PathVariable("type") String type) {
+        return poiService.findByType(type);
     }
 
-    @PutMapping("update")
-    public Mono<Poi> updatePoi(@RequestBody Poi poiDetails) {
+    @PutMapping("/pois/{id}")
+    public Mono<Poi> updatePoi(@PathVariable("id") Long id,@RequestBody Poi poiDetails) {
+        poiDetails.setID(id);
         return poiService.update(poiDetails);
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/pois/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void delete(@PathVariable("id") Long id) {
-        poiService.delete(id);
+    public ResponseEntity<Mono> delete(@PathVariable("id") Long id) {
+        Mono p = poiService.delete(id);
+        HttpStatus status = p != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST;
+        return new ResponseEntity<Mono>(p,status);
     }
 }

@@ -1,0 +1,97 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Title",
+    "description": "Title",
+    "version": "1.0.0"
+  },
+  "host": "www",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/poi/{type}": {
+      "get": {
+        "summary": "GET api/poi/{type}",
+        "operationId": "findByType",
+        "parameters": {
+          "name": "type",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "responses": "200",
+          "description": "OK"
+        }
+      }
+    },
+    "/api/pois": {
+      "get": {
+        "summary": "GET api/pois",
+        "operationId": "findAll",
+        "responses": "200",
+        "description": "OK"
+      }
+    },
+    "/api/pois/create": {
+      "post": {
+        "summary": "POST api/pois/create",
+        "operationId": "create",
+        "responses": "200",
+        "description": "OK"
+      }
+    },
+    "/api/pois/{id}": {
+      "get": {
+        "summary": "GET api/pois/{id}",
+        "operationId": "findById",
+        "parameters": {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "number",
+            "format": "int64"
+          }
+        },
+        "responses": "200",
+        "description": "OK"
+      }
+    },
+    "/api/pois/{id}": {
+      "put": {
+        "summary": "PUT api/pois/{id}",
+        "operationId": "updatePoi",
+        "parameters": {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "number",
+            "format": "int64"
+          }
+        },
+        "responses": "200",
+        "description": "OK"
+      }
+    },
+    "/api/pois/{id}": {
+      "delete": {
+        "summary": "DELETE api/pois/{id}",
+        "operationId": "delete",
+        "parameters": {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "number"
+          },
+          "format": "int64"
+        },
+        "responses": "200",
+        "description": "OK"
+      }
+    }
+  }
+}
