@@ -38,7 +38,12 @@ class PoiControllerTest {
 
     @Test
     void findById() {
-        webTestClient.get().uri("/api/pois/{id}","5")
+        Poi poi = new Poi();
+        poi.setID(5L);
+
+        Mockito.when(poiService.findById(5L)).thenReturn(Mono.just(poi));
+
+        webTestClient.get().uri("/api/pois/{id}",5)
                 .exchange()
                 .expectStatus().isOk();
     }
